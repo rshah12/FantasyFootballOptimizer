@@ -1,5 +1,6 @@
-<?php include("player.php"); ?>
 <?php
+  include("lineup.php");
+
   $conn = new mysqli("classroom.cs.unc.edu","patelr1","comp426Group","patelr1db");
 
   $QBs = array();
@@ -62,5 +63,40 @@
   mysqli_free_result($Result);
   }
 
-  echo $QBs[0];
+  $Lineups = array();
+  $maxLineups = 1000;
+  $maxExposure = 50;
+
+    foreach($QBs as $QB){
+        if(sizeof($Lineups) >= $maxLineups){break;}
+      foreach($RBs as $RB){
+          if(sizeof($Lineups) >= $maxLineups){break;}
+        foreach($RBs as $RB2){
+            if(sizeof($Lineups) >= $maxLineups){break;}
+          foreach($WRs as $WR){
+              if(sizeof($Lineups) >= $maxLineups){break;}
+            foreach($WRs as $WR2){
+                if(sizeof($Lineups) >= $maxLineups){break;}
+              foreach($WRs as $WR3){
+                  if(sizeof($Lineups) >= $maxLineups){break;}
+                foreach($TEs as $TE){
+                    if(sizeof($Lineups) >= $maxLineups){break;}
+                  foreach($Ks as $K){
+                      if(sizeof($Lineups) >= $maxLineups){break;}
+                    foreach($Ds as $D){
+                      $lineup = new lineup($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D);
+                      if ($lineup->salary > 57000 && $lineup->salary < 60000){
+                        array_push($Lineups, $lineup);
+                        echo "Got valid lineup";
+                      }
+                      if(sizeof($Lineups) >= $maxLineups){break;}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 ?>
