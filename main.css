@@ -1,0 +1,22 @@
+table, th, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: calibri;
+}
+
+#players {
+    margin-top: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#removeP {
+    background-color: #f94f5e;
+    border-radius: 8px;
+    font-family: calibri;
+    font-weight: bold;
+    border-color: #f94f5e;
+}
