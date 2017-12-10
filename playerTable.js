@@ -1,0 +1,3 @@
+var playerTable = function(){
+  
+}
