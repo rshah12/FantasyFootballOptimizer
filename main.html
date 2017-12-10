@@ -3,34 +3,151 @@
 <html>
 
 <head>
-<title>NFL Lineup Optimizer</title>
+    <title>NFL Lineup Optimizer</title>
+    <link rel = "stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+
+<h1>NFL Optimizer</h1>
+
+     <form method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+
+<table style="width: 40%" id="lineup">
+    <tr>
+       <th>Player</th>
+       <th>Position</th>
+       <th>Salary</th>
+       <th>Projected points</th>
+    </tr>
+    <tr>
+       <td>something</td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+    </tr>
+
+    </table>
+
+<table style = "width: 80%" id = "players">
+    <tr>
+        <th>Include player?</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Opponent</th>
+        <th>Projection</th>
+        <th>Salary</th>
+        <th>Cost per point</th>
+    </tr>
+    <tr>
+        <button id="removeP">X</button>
+
+    </tr>
+
+    </table>
+
+
+
+
+<!--    <p></p>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("form").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: 'upload.php',
+                success: function(data) {
+                    alert(data);
+                    $("p").text(data);
+
+                }
+            });
+   });
+});
+</script>-->
+
+
+   <!-- <div id="afcLogos">
+        <img src="Logos/Patriots.png">
+        <img src="Logos/Steelers.png">
+        <img src="Logos/Broncos.png">
+        <img src="Logos/Raiders.png">
+        <img src="Logos/Chiefs.png">
+        <img src="Logos/Colts.png">
+        <img src="Logos/Ravens.png">
+        <img src="Logos/Jets.png">
+        <img src="Logos/Dolphins.png">
+        <img src="Logos/Bills.png">
+        <img src="Logos/Texans.png">
+        <img src="Logos/Browns.png">
+        <img src="Logos/Bengals.png">
+        <img src="Logos/Chargers.png">
+        <img src="Logos/Titans.png">
+        <img src="Logos/Jaguars.png">
+    </div>-->
+=======
+    <form action="read.php" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="Upload Data" name="submit">
 </form>
 
-<div id="afcLogos">
-    <img src="Logos/Patriots.png">
-    <img src="Logos/Steelers.png">
-    <img src="Logos/Broncos.png">
-    <img src="Logos/Raiders.png">
-    <img src="Logos/Chiefs.png">
-    <img src="Logos/Colts.png">
-    <img src="Logos/Ravens.png">
-    <img src="Logos/Jets.png">
-    <img src="Logos/Dolphins.png">
-    <img src="Logos/Bills.png">
-    <img src="Logos/Texans.png">
-    <img src="Logos/Browns.png">
-    <img src="Logos/Bengals.png">
-    <img src="Logos/Chargers.png">
-    <img src="Logos/Titans.png">
-    <img src="Logos/Jaguars.png">
-    </div>
+>>>>>>> origin/master
 
 </body>
 
