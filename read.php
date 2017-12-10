@@ -1,4 +1,5 @@
 <?php
+  echo 'Current PHP version: ' . phpversion();
   date_default_timezone_set('America/New_York');
   $conn = new mysqli("classroom.cs.unc.edu","patelr1","comp426Group","patelr1db");
 
