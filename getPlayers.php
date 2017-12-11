@@ -70,41 +70,42 @@
   $minProjection = 1000;
   $counter = 0;
   $sum=0;
+  $maxExposure = 100;
 
     for($i=0; $i<7; $i++){
         $QB = $QBs[$i];
-        if($counter >= $maxLineups){break;}
+        if($counter >= $maxLineups || $QB->uses > $maxExposure){break;}
       for($j=0; $j<10; $j++){
           $RB = $RBs[$j];
-          if($counter >= $maxLineups){break;}
+          if($counter >= $maxLineups || $RB->uses > $maxExposure){break;}
         for($k=0; $k<10; $k++){
             $RB2 = $RBs[$k+$j];
-            if($counter >= $maxLineups){break;}
+            if($counter >= $maxLineups || $RB2->uses > $maxExposure){break;}
             if($RB2 != $RB){
           for($l=0; $l<15; $l++){
               $WR = $WRs[$l];
-              if($counter >= $maxLineups){break;}
+              if($counter >= $maxLineups || $WR->uses > $maxExposure){break;}
               //if($WR->sal+$RB2->sal+$RB->sal+$QB->sal+22000 > 60000){break;}
             for($m=0; $m<15; $m++){
                 $WR2 = $WRs[$m+$l];
-                if(sizeof($Lineups) >= $maxLineups){break;}
+                if(sizeof($Lineups) >= $maxLineups || $WR2->uses > $maxExposure){break;}
                 if($WR2 != $WR){
                 //if($WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+17500 > 60000){break;}
               for($n=0; $n<15; $n++){
                   $WR3 = $WRs[$n+$m+$l];
-                  if($counter >= $maxLineups){break;}
+                  if($counter >= $maxLineups || $WR3->uses > $maxExposure){break;}
                   if($WR3 != $WR2 && $WR3 != $WR){
                   //if($WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+13000 > 60000){break;}
                 for($o=0; $o<5; $o++){
                     $TE = $TEs[$o];
-                    if($counter >= $maxLineups){break;}
+                    if($counter >= $maxLineups || $TE->uses > $maxExposure){break;}
                     //if($TE->sal+$WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+8500 > 60000){break;}
                   for($p=0; $p<5; $p++){
                       $K = $Ks[$p];
-                      if($counter >= $maxLineups){break;}
+                      if($counter >= $maxLineups || $K->uses > $maxExposure){break;}
                     for($q=0; $q<5; $q++){
                       $D = $Ds[$q];
-                      if($counter >= $maxLineups){break;}
+                      if($counter >= $maxLineups || $D->uses > $maxExposure){break;}
                       $lineup = new lineup($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D);
                       //echo "$lineup->salary\n";
                       if ($lineup->salary > 57000 && $lineup->salary <= 60000){
@@ -130,6 +131,15 @@
                             }
                         }
                         $counter++;
+                        $QB->uses = $QB->uses + 1;
+                        $RB->uses = $RB->uses + 1;
+                        $RB2->uses = $RB2->uses + 1;
+                        $WR->uses = $WR->uses + 1;
+                        $WR2->uses = $WR2->uses + 1;
+                        $WR3->uses = $WR3->uses + 1;
+                        $TE->uses = $TE->uses + 1;
+                        $K->uses = $K->uses + 1;
+                        $D->uses = $D->uses + 1;
                       }
 
                     }
