@@ -67,7 +67,7 @@
   $maxLineups = 2000;
   $maxExposure = 50;
   $requestedLineups = 100;
-  $minProjection = 1000;
+  $minProjection = 0;
   $counter = 0;
   $sum=0;
 
@@ -100,16 +100,18 @@
                       $lineup = new lineup($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D);
                       //echo "$lineup->salary\n";
                       if ($lineup->salary > 57000 && $lineup->salary <= 60000){
-                        if($counter < 100){
+                        if($counter < $requestedLineups){
                           //echo "$counter\n";
                           array_push($Lineups, $lineup);
                           if($minProjection < $lineup->projection){
                             $minProjection = $lineup->projection;
                             $minIndex = $counter;
                           }
-                            $counter++;
                         } else if ($lineup->projection > $minProjection){
-                            echo "$lineup->projection\n";
+                            echo "Added Lineup Projection: "."$lineup->projection"." at Lineup#"."$counter\n";
+                            //echo $lineup->$QB->$fname;
+                            //echo "$lineup->$QB->$lname"." "."$lineup->$RB->$lname"." "."$lineup->$RB2->$lname"." "."$lineup->$WR->$lname"." "."$lineup->$WR2->$lname\n";
+                            //echo "$lineup->$WR3->$lname"." "."$lineup->$TE->$lname"." "."$lineup->$K->$lname"." "."$lineup->$D->$lname\n";
                             $Lineups[$minIndex] = $lineup;
                             $minProjection = 1000;
                             for($z=0; $z<count($Lineups);$z++){
@@ -119,6 +121,7 @@
                               }
                             }
                         }
+                        $counter++;
                       }
 
                     }
