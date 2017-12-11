@@ -64,26 +64,26 @@
   }
 
   $Lineups = array();
-  $maxLineups = 100;
+  $maxLineups = 1000000;
   $maxExposure = 50;
   $requestedLineups = 100;
-  $minProjection = 0;
+  $minProjection = 1000;
   $counter = 0;
   $sum=0;
 
     for($i=0; $i<7; $i++){
         $QB = $QBs[$i];
-        if(sizeof($Lineups) >= $maxLineups){break;}
+        if($counter >= $maxLineups){break;}
       for($j=0; $j<10; $j++){
           $RB = $RBs[$j];
-          if(sizeof($Lineups) >= $maxLineups){break;}
+          if($counter >= $maxLineups){break;}
         for($k=0; $k<10; $k++){
             $RB2 = $RBs[$k+$j];
-            if(sizeof($Lineups) >= $maxLineups){break;}
+            if($counter >= $maxLineups){break;}
             if($RB2 != $RB){
           for($l=0; $l<15; $l++){
               $WR = $WRs[$l];
-              if(sizeof($Lineups) >= $maxLineups){break;}
+              if($counter >= $maxLineups){break;}
               //if($WR->sal+$RB2->sal+$RB->sal+$QB->sal+22000 > 60000){break;}
             for($m=0; $m<15; $m++){
                 $WR2 = $WRs[$m+$l];
@@ -92,33 +92,34 @@
                 //if($WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+17500 > 60000){break;}
               for($n=0; $n<15; $n++){
                   $WR3 = $WRs[$n+$m+$l];
-                  if(sizeof($Lineups) >= $maxLineups){break;}
+                  if($counter >= $maxLineups){break;}
                   if($WR3 != $WR2 && $WR3 != $WR){
                   //if($WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+13000 > 60000){break;}
                 for($o=0; $o<5; $o++){
                     $TE = $TEs[$o];
-                    if(sizeof($Lineups) >= $maxLineups){break;}
+                    if($counter >= $maxLineups){break;}
                     //if($TE->sal+$WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+8500 > 60000){break;}
                   for($p=0; $p<5; $p++){
                       $K = $Ks[$p];
-                      if(sizeof($Lineups) >= $maxLineups){break;}
+                      if($counter >= $maxLineups){break;}
                     for($q=0; $q<5; $q++){
                       $D = $Ds[$q];
-                      if(sizeof($Lineups) >= $maxLineups){break;}
+                      if($counter >= $maxLineups){break;}
                       $lineup = new lineup($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D);
                       //echo "$lineup->salary\n";
                       if ($lineup->salary > 57000 && $lineup->salary <= 60000){
                         if($counter < $requestedLineups){
                           //echo "$counter\n";
                           array_push($Lineups, $lineup);
-                          if($minProjection < $lineup->projection){
+                          if($minProjection > $lineup->projection){
                             $minProjection = $lineup->projection;
+                            //echo "$minProjection\n";
                             $minIndex = $counter;
                           }
                         } else if ($lineup->projection > $minProjection){
-                            echo "Added Lineup Projection: "."$lineup->projection"." at Lineup#"."$counter\n";
-                            echo "$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
-                            echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
+                            //echo "Added Lineup Projection: "."$lineup->projection"." at Lineup#"."$counter\n";
+                            //echo "$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
+                            //echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
                             $Lineups[$minIndex] = $lineup;
                             $minProjection = 1000;
                             for($z=0; $z<count($Lineups);$z++){
@@ -144,18 +145,21 @@
       }
     }
 
-    foreach($Lineups as $l){
-      echo "Lineup Projection: "."$l->projection\n";
-      $QB = $l->QB;
-      $RB = $l->RB;
-      $RB2 = $l->RB2;
-      $WR = $l->WR;
-      $WR2 = $l->WR2;
-      $WR3 = $l->WR3;
-      $TE = $l->TE;
-      $K = $l->K;
-      $D = $l->D;
-      echo "Players "."$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
-      echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
-    }
+   foreach($Lineups as $l){
+     echo "$l->projection\n";
+   }
+    // foreach($Lineups as $l){
+    //   echo "Lineup Projection: "."$l->projection\n";
+    //   $QB = $l->QB;
+    //   $RB = $l->RB;
+    //   $RB2 = $l->RB2;
+    //   $WR = $l->WR;
+    //   $WR2 = $l->WR2;
+    //   $WR3 = $l->WR3;
+    //   $TE = $l->TE;
+    //   $K = $l->K;
+    //   $D = $l->D;
+    //   echo "Players "."$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
+    //   echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
+    // }
 ?>
