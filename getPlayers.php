@@ -13,6 +13,16 @@
   mysqli_free_result($Result);
   }
 
+echo "<table style='width: 40%' id='lineup'>";
+    echo "<tr>";
+        echo "<th>Player</th>";
+       echo "<th>Position</th>";
+      echo "<th>Salary</th>";
+       echo "<th>Projected points</th>";
+    echo "</tr>";
+
+    echo "</table>";
+
   $RBs = array();
   $Query = "SELECT * FROM ppool WHERE pos = 'RB' AND cpp < (SELECT avg from averages WHERE pos = 'RB') ORDER BY cpp";
   if ($Result=mysqli_query($conn,$Query)){
