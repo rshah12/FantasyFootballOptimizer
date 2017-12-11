@@ -121,6 +121,10 @@
                             //echo "Added Lineup Projection: "."$lineup->projection"." at Lineup#"."$counter\n";
                             //echo "$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
                             //echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
+                            
+                            for ($decCounter=0; $decCounter<9; $decCounter++){
+                              $Lineups[$minIndex]->uses = $Lineups[$minIndex]->uses - 1;
+                            }
                             $Lineups[$minIndex] = $lineup;
                             $minProjection = 1000;
                             for($z=0; $z<count($Lineups);$z++){
