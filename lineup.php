@@ -11,7 +11,7 @@
         public $TE;
         public $K;
         public $D;
-        public $sal;
+        public $salary;
         public $avgCpp;
 
         function __construct($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D){
