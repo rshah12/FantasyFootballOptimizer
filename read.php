@@ -1,5 +1,8 @@
 <?php
 
+if(empty($errors)==true){
+  move_uploaded_file($file_tmp,"uploads/".$file_name);
+
 if (isset($_FILES['file']['name'])) {
     if (0 < $_FILES['file']['error']) {
         echo 'Error during file upload' . $_FILES['file']['error'];
@@ -14,7 +17,6 @@ if (isset($_FILES['file']['name'])) {
 } else {
     echo 'Please choose a file';
 }
-
 
 
   ///
