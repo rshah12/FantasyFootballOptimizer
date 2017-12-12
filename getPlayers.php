@@ -128,7 +128,7 @@ echo '<script> var QBs = ' . json_encoder($QBs) . '; </script>';
                             //echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
                             
                             for ($decCounter=0; $decCounter<9; $decCounter++){
-                              $Lineups[$minIndex]->uses = $Lineups[$minIndex]->uses - 1;
+                              $Lineups[$minIndex][$decCounter]->uses = $Lineups[$minIndex][$decCounter]->uses - 1;
                             }
                             $Lineups[$minIndex] = $lineup;
                             $minProjection = 1000;
