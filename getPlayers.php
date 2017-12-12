@@ -15,7 +15,9 @@
 
 //pass array to javascript
 
-//echo '<script> var QBs = ' . json_encoder($QBs) . '; </script>';
+echo '<script>';
+echo 'var quarterbacks = ' . json_encode($QBs) . ';';
+echo '</script>';
 
 
   $RBs = array();

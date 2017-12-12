@@ -20,3 +20,19 @@ h1 {
     font-weight: bold;
     border-color: #f94f5e;
 }
+
+#afcLogos {
+    width: 100%;
+    text-align: center;
+}
+
+#nfcLogos {
+    widows: 100%;
+    text-align: center;
+}
+
+img {
+    width: 80px;
+    align-items: center;
+    display: inline-block;
+}

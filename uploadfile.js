@@ -29,7 +29,7 @@ function fileUpload(event) {
         var file = files[i];
         if (!file.type.match('text.*')) {
             // Check for File type. the 'type' property is a string, it facilitates usage if match() function to do the matching
-            $("#drop-box").html("Images only. Select another file");
+            $("#drop-box").html("Text files only. Select another file");
             error = 1;
         } else if (file.size > 1048576) {
             // File size is provided in bytes
@@ -38,7 +38,7 @@ function fileUpload(event) {
         } else {
             // If all goes well, append the up-loadable file to FormData object
             data.append('text', file, file.name);
-            // Comparing it to a standard form submission the 'image' will be name of input
+            // Comparing it to a standard form submission the 'text' will be name of input
         }
     }
     if (!error) {
