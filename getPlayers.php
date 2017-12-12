@@ -127,9 +127,19 @@ echo '<script> var QBs = ' . json_encoder($QBs) . '; </script>';
                             //echo "$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
                             //echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
                             
-                            for ($decCounter=0; $decCounter<9; $decCounter++){
-                              $Lineups[$minIndex][$decCounter]->uses = $Lineups[$minIndex][$decCounter]->uses - 1;
-                            }
+                            
+                            $Lineups[$minIndex]->$QB->uses = $Lineups[$minIndex]->$QB->uses - 1;
+                            $Lineups[$minIndex]->$RB->uses = $Lineups[$minIndex]->$RB->uses - 1;
+                            $Lineups[$minIndex]->$RB2->uses = $Lineups[$minIndex]->$RB2->uses - 1;
+                            $Lineups[$minIndex]->$WR->uses = $Lineups[$minIndex]->$WR->uses - 1;
+                            $Lineups[$minIndex]->$WR2->uses = $Lineups[$minIndex]->$WR2->uses - 1;
+                            $Lineups[$minIndex]->$WR3->uses = $Lineups[$minIndex]->$WR3->uses - 1;
+                            $Lineups[$minIndex]->$TE->uses = $Lineups[$minIndex]->$TE->uses - 1;
+                            $Lineups[$minIndex]->$K->uses = $Lineups[$minIndex]->$K->uses - 1;
+                            $Lineups[$minIndex]->$D->uses = $Lineups[$minIndex]->$D->uses - 1;
+                            
+                            
+                            
                             $Lineups[$minIndex] = $lineup;
                             $minProjection = 1000;
                             for($z=0; $z<count($Lineups);$z++){
