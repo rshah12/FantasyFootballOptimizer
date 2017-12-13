@@ -1,40 +1,22 @@
 <?php
 
-//if(empty($errors)==true){
-//  move_uploaded_file($file_tmp,"uploads/".$file_name);
-//
-//if (isset($_FILES['file']['name'])) {
-//    if (0 < $_FILES['file']['error']) {
-//        echo 'Error during file upload' . $_FILES['file']['error'];
-//    } else {
-//        if (file_exists('uploads/' . $_FILES['file']['name'])) {
-//            echo 'File already exists : uploads/' . $_FILES['file']['name'];
-//        } else {
-//            move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-//            echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
-//        }
-//    }
-//} else {
-//    echo 'Please choose a file';
-//}
+if(empty($errors)==true){
+  move_uploaded_file($file_tmp,"uploads/".$file_name);
 
-
- if(isset($_POST['submit'])){
-    $name       = $_FILES['file']['name'];
-    $temp_name  = $_FILES['file']['tmp_name'];
-    if(isset($name)){
-        if(!empty($name)){
-            $location = '../uploads/';
-            if(move_uploaded_file($temp_name, $location.$name)){
-                echo 'File uploaded successfully';
-            }
+if (isset($_FILES['file']['name'])) {
+    if (0 < $_FILES['file']['error']) {
+        echo 'Error during file upload' . $_FILES['file']['error'];
+    } else {
+        if (file_exists('uploads/' . $_FILES['file']['name'])) {
+            echo 'File already exists : uploads/' . $_FILES['file']['name'];
+        } else {
+            move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
+            echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
         }
-    }  else {
-        echo 'You should select a file to upload !!';
     }
+} else {
+    echo 'Please choose a file';
 }
-
-
 
 
   date_default_timezone_set('America/New_York');
