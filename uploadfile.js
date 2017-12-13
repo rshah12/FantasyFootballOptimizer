@@ -1,63 +1,111 @@
-$(function () {
-    $("#drop-box").click(function () {
-        $("#upl").click();
-    });
-    // trigger the choose file button when clicked in the blue box
 
-    // To prevent Browsers from opening the file when its dragged and dropped on to the page
-    $(document).on('drop dragover', function (e) {
-        e.preventDefault();
-    });
+ $(function()
+{
+	// Variable to store your files
+	var files;
+    var testname;
 
-    // Add a listener to check if a file is chosen to trigger the upload action to call function fileUpload
-    $('input[type=file]').on('change', fileUpload);
-});
+	// Add events
+	$('input[type=file]').on('change', prepareUpload);
+	$('form').on('submit', uploadFiles);
 
-function fileUpload(event) {
-    $("#drop-box").html("" + event.target.value + " uploading...");
-    //to notify user the file is being uploaded
-    files = event.target.files;
-    // get the selected files
-    var data = new FormData();
-    // Form Data check the above bullet for what it is
-    var error = 0;
-    // Flag to notify in case of error and abort the upload
+	// Grab the files and set them to our variable
+	function prepareUpload(event)
+	{
+		files = event.target.files;
+        testname = "projection.txt"
+	}
 
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if (!file.type.match('text.*')) {
-            // Check for File type. the 'type' property is a string, it facilitates usage if match() function to do the matching
-            $("#drop-box").html("Text files only. Select another file");
-            error = 1;
-        } else if (file.size > 1048576) {
-            // File size is provided in bytes
-            $("#drop-box").html(" Too large Payload ( < 1 Mb). Select another file");
-            error = 1;
-        } else {
-            // If all goes well, append the up-loadable file to FormData object
-            data.append('text', file, file.name);
-            // Comparing it to a standard form submission the 'text' will be name of input
-        }
+	// Catch the form submit and upload the files
+	function uploadFiles(event) {
+         $("#drop-box").html("" + testname + " uploading...");
+		event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+		var data = new FormData();
+		$.each(files, function(key, value)
+		{
+			data.append(key, value);
+		});
+
+        $.ajax({
+            url: 'read.php?files',
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+            	if(typeof data.error === 'undefined')
+            	{
+            		// Success so call function to process the form
+            		submitForm(event, data);
+            	}
+            	else
+            	{
+            		// Handle errors here
+            		console.log('ERRORS: ' + data.error);
+            	}
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+            	// Handle errors here
+            	console.log('ERRORS: ' + textStatus);
+            	// STOP LOADING SPINNER
+            }
+        });
+
+     $("#drop-box").html("Success!");
     }
 
-    data.append('text', file, file.name);
-    alert(data);
+    function submitForm(event, data) {
+		// Create a jQuery object from the form
+		$form = $(event.target);
 
-    if (!error) {
-        var xhr = new XMLHttpRequest();
-        // Create a new XMLHttpRequest
-        xhr.open('POST', 'read.php', true);
-        // File Location, this is where the data will be posted
-        xhr.send(data);
-        alert(data);
-        xhr.onload = function () {
-            // On Data send the following works
-            if (xhr.status === 200) {
-                $("#drop-box").html("File Uploaded.");
-                }
-                else {
-                    $("#drop-box").html("Error in upload, try again.");
-                    }
-                };
+		// Serialize the form data
+		var formData = $form.serialize();
+
+		// You should sterilise the file names
+		$.each(data.files, function(key, value)
+		{
+			formData = formData + '&filenames[]=' + value;
+		});
+
+		$.ajax({
+			url: 'read.php',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            dataType: 'json',
+            success: function(data, textStatus, jqXHR)
+            {
+            	if(typeof data.error === 'undefined')
+            	{
+            		// Success so call function to process the form
+            		console.log('SUCCESS: ' + data.success);
+            	}
+            	else
+            	{
+            		// Handle errors here
+            		console.log('ERRORS: ' + data.error);
+            	}
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+            	// Handle errors here
+            	console.log('ERRORS: ' + textStatus);
+            },
+            complete: function()
+            {
+            	// STOP LOADING SPINNER
             }
-        }
+		});
+
+
+	}
+});

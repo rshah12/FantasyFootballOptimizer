@@ -50,7 +50,7 @@
             <img src="Logos/AFC/Jaguars.png"></a>
     </div>
 
-    <h1>NFL Optimizer</h1>
+    <h1>NFL Optimizer</h1><br>
 
     <div id="nfcLogos">
         <img src="Logos/NFC/49ers.png">
@@ -74,12 +74,26 @@
     </div>
 
 
+    <!--
     <form>
         <div id="drop-box">
             <p>Select Files</p>
         </div>
         <input type="file" name="upl" id="upl" />
+        <button type="submit" id="uploadbutton">Upload file</button>
     </form>
+-->
+
+    <form action="#" enctype="multipart/form-data" method="post">
+	<div id = "drop-box">
+        <p>Select files</p>
+        </div>
+			<label for="file_upload"></label>
+			<input type="file" name="file_upload" id="upl" multiple>
+
+		<input class="button green" type="submit" name="submit" value="Submit Content">
+
+</form>
 
     <table style="width: 40%" id="lineup">
         <tr>
