@@ -23,8 +23,6 @@ function fileUpload(event) {
     var error = 0;
     // Flag to notify in case of error and abort the upload
 
-    // File data is presented as an array. In this case we can just jump to the index file using files[0] but this array traversal is recommended
-
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         if (!file.type.match('text.*')) {
@@ -41,12 +39,17 @@ function fileUpload(event) {
             // Comparing it to a standard form submission the 'text' will be name of input
         }
     }
+
+    data.append('text', file, file.name);
+    alert(data);
+
     if (!error) {
         var xhr = new XMLHttpRequest();
         // Create a new XMLHttpRequest
         xhr.open('POST', 'read.php', true);
         // File Location, this is where the data will be posted
         xhr.send(data);
+        alert(data);
         xhr.onload = function () {
             // On Data send the following works
             if (xhr.status === 200) {

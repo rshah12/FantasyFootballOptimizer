@@ -1,7 +1,8 @@
 <?php
 
 if(empty($errors)==true){
-  move_uploaded_file($file_tmp,"uploads/".$file_name);
+    echo "test";
+  move_uploaded_file($file_tmp,".../uploads/".$file_name);
 
 if (isset($_FILES['file']['name'])) {
     if (0 < $_FILES['file']['error']) {
