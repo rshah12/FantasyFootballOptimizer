@@ -15,10 +15,15 @@
 
 //pass array to javascript
 
-echo '<script>';
-echo 'var quarterbacks = ' . json_encode($QBs) . ';';
-echo '</script>';
+echo json_encode($QBs);
 
+?>
+
+<script type="text/javascript">var quarterbacks =<?php echo json_encode($QBs); ?>
+        alert(quarterbacks);</script>
+<script type="text/javascript" src="updateDOM.js"></script>
+
+<?php
 
   $RBs = array();
   $Query = "SELECT * FROM ppool WHERE pos = 'RB' AND cpp < (SELECT avg from averages WHERE pos = 'RB') ORDER BY cpp";
