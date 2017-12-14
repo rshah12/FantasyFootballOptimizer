@@ -1,5 +1,5 @@
 <?php
-    class player{
+    class player implements JSONSerializable{
         public $fname;
         public $lname;
         public $pos;
@@ -21,5 +21,19 @@
             $this->projection = $proj;
             $this->uses = 0;
         }
+
+        public function jsonSerialize () {
+        return array(
+            'fname'=>$this->fname,
+            'lname'=>$this->lname,
+            'pos'=>$this->pos,
+            'cpp'=>$this->cpp,
+            'sal'=>$this->sal,
+            'team'=>$this->team,
+            'opp'=>$this->opp,
+            'projection'=>$this->projection,
+            'uses'=>$this->uses
+        );
+    }
     }
 ?>

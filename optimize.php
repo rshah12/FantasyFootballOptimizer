@@ -186,4 +186,6 @@
     //   echo "Players "."$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
     //   echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
     // }
+
+$conn->close();
 ?>
