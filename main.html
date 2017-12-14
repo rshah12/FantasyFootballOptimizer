@@ -85,15 +85,15 @@
 -->
 
     <form action="#" enctype="multipart/form-data" method="post">
-	<div id = "drop-box">
-        <p>Select files</p>
+        <div id="drop-box">
+            <p>Select files</p>
         </div>
-			<label for="file_upload"></label>
-			<input type="file" name="file_upload" id="upl" multiple>
+        <label for="file_upload"></label>
+        <input type="file" name="file_upload" id="upl" multiple>
 
-		<input class="button green" type="submit" name="submit" value="Submit Content">
+        <input class="button green" type="submit" name="submit" value="Submit Content">
 
-</form>
+    </form>
 
     <table style="width: 40%" id="lineup">
         <tr>
@@ -159,7 +159,7 @@
 
     </table>
 
-    <button type = "button" id = "showdata">Display data</button>
+    <button type="button" id="showdata">Display data</button>
 
     <table style="width: 80%" id="players">
         <tr>
@@ -174,13 +174,46 @@
             <th>Cost per point</th>
         </tr>
         <tr>
-            <button type = "submit" id="removeP">X</button>
+            <button type="submit" id="removeP">X</button>
 
         </tr>
 
     </table>
 
-    <div id = "test"></div>
+    <div id="test"></div>
+
+    <p id="sqlprint">
+        <?php
+  try {
+  $con= new PDO('mysql:host = "classroom.cs.unc.edu";dbname = "patelr1db"', "patelr1", "comp426Group");
+  $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $query = "SSELECT * FROM ppool WHERE pos = 'QB' AND cpp < (SELECT avg from averages WHERE pos = 'QB') ORDER BY cpp";
+  //first pass just gets the column names
+  print "<table> n";
+  $result = $con->query($query);
+  //return only the first row (we only need field names)
+  $row = $result->fetch(PDO::FETCH_ASSOC);
+  print " <tr> n";
+  foreach ($row as $field => $value){
+   print " <th>$field</th> n";
+  } // end foreach
+  print " </tr> n";
+  //second query gets the data
+  $data = $con->query($query);
+  $data->setFetchMode(PDO::FETCH_ASSOC);
+  foreach($data as $row){
+   print " <tr> n";
+   foreach ($row as $name=>$value){
+   print " <td>$value</td> n";
+   } // end field loop
+   print " </tr> n";
+  } // end record loop
+  print "</table> n";
+  } catch(PDOException $e) {
+   echo 'ERROR: ' . $e->getMessage();
+  } // end try
+ ?>
+    </p>
 
 
 

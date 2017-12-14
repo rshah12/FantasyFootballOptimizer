@@ -19,9 +19,9 @@ echo json_encode($QBs);
 
 ?>
 
-<script type="text/javascript">var quarterbacks =<?php echo json_encode($QBs); ?>
-        alert(quarterbacks);</script>
-<script type="text/javascript" src="updateDOM.js"></script>
+<script type="text/javascript" src = "updateDOM.js">
+    var quarterbacks = <?php echo json_encode($QBs) ?>;
+</script>
 
 <?php
 

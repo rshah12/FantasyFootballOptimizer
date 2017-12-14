@@ -130,8 +130,9 @@ echo json_encode($data);
 
 	?>
 
-	<script type="text/javascript">var quarterbacks =<?php echo json_encode($QBs); ?>
-	        alert(quarterbacks);</script>
+	<script type="text/javascript">var quarterbacks =<?php
+            echo json_encode($QBs);
+            alert(quarterbacks[0].?>
 	<script type="text/javascript" src="updateDOM.js"></script>
 
 	<?php
