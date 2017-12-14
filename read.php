@@ -37,6 +37,8 @@ if(isset($_GET['files']))
 	$error = false;
 	$files = array();
 	$uploaddir = './uploads/';
+    $target_file = $uploaddir . basename($_FILES["fileToUpload"]["name"]);
+    echo $target_file;
 	foreach($_FILES as $file)
 	{
 		if(move_uploaded_file($file['tmp_name'], $uploaddir .basename($file['name'])))
@@ -85,7 +87,7 @@ echo json_encode($data);
   );";
   $conn->query($Query);
 
-  $file = fopen($target_file,"r");
+  $file = fopen('./uploads/projections.txt',"r");
 
   while(!feof($file)){
     $line = fgets($file);
