@@ -1,6 +1,8 @@
 <?php
 include("lineup.php");
 
+ $conn = new mysqli("classroom.cs.unc.edu","patelr1","comp426Group","patelr1db");
+
 $QBs = array();
 $Query = "SELECT * FROM ppool WHERE pos = 'QB' AND cpp < (SELECT avg from averages WHERE pos = 'QB') ORDER BY cpp";
 if ($Result=mysqli_query($conn,$Query)){
@@ -13,25 +15,23 @@ mysqli_free_result($Result);
 
 //pass array to javascript
 
-echo json_encode($QBs);
-
 ?>
 
 
-<script type="text/javascript">var quarterbacks =<?php echo json_encode($QBs);?>;
+    <script type="text/javascript">
+        var quarterbacks = <?php echo json_encode($QBs);?>;
 
-for(var i = 0; i<quarterbacks.length; i++){
-alert(quarterbacks[i]);
-}
+        for (var i = 0; i < quarterbacks.length; i++) {
+            alert(quarterbacks[i]);
+        }
+    </script>
+    <script type="text/javascript" src="updateDOM.js"></script>
+    <script type="text/javascript" src="updateDOM.js">
+        var quarterbacks = <?php echo json_encode($QBs) ?>;
+    </script>
 
-</script>
-<script type="text/javascript" src="updateDOM.js"></script>
-<script type="text/javascript" src = "updateDOM.js">
-    var quarterbacks = <?php echo json_encode($QBs) ?>;
-</script>
 
-
-<?php
+    <?php
 
 $RBs = array();
 $Query = "SELECT * FROM ppool WHERE pos = 'RB' AND cpp < (SELECT avg from averages WHERE pos = 'RB') ORDER BY cpp";
@@ -82,6 +82,8 @@ if ($Result=mysqli_query($conn,$Query)){
   }
 mysqli_free_result($Result);
 }
+
+        $conn->close();
 
 
 ?>
