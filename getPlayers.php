@@ -17,6 +17,7 @@ echo json_encode($QBs);
 
 ?>
 
+
 <script type="text/javascript">var quarterbacks =<?php echo json_encode($QBs);?>;
 
 for(var i = 0; i<quarterbacks.length; i++){
@@ -25,6 +26,10 @@ alert(quarterbacks[i]);
 
 </script>
 <script type="text/javascript" src="updateDOM.js"></script>
+<script type="text/javascript" src = "updateDOM.js">
+    var quarterbacks = <?php echo json_encode($QBs) ?>;
+</script>
+
 
 <?php
 
