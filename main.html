@@ -8,6 +8,11 @@
     <script src="jquery-3.2.1.js"></script>
     <script src="updateDOM.js" type="text/javascript"></script>
     <script src="uploadfile.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" type = "text/css" href="css/bootstrap.min.css">
+</head>
+>>>>>>> b56085ccb70e244081213997d8f34d12acd1d300
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -111,17 +116,7 @@
             <div class="col-lg-1"></div>
         </div> 
     </div>
-
-    <!--
-    <form>
-        <div id="drop-box">
-            <p>Select Files</p>
-        </div>
-        <input type="file" name="upl" id="upl" />
-        <button type="submit" id="uploadbutton">Upload file</button>
-    </form>
--->
-
+    
     <form action="#" enctype="multipart/form-data" method="post">
         <div id="drop-box">
             <p>Select files</p>
@@ -133,114 +128,25 @@
 
     </form>
 
-    <table style="width: 40%" id="lineup">
-        <tr>
-            <th>Player</th>
-            <th>Position</th>
-            <th>Salary</th>
-            <th>Projected points</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
 
-    </table>
+    <button type="button" id="Optimize" onclick="optimize()">Optimize</button>
+
+    <div id= "Lineups"></div>
 
     <button type="button" id="showdata" onclick="fillData()">Display data</button>
 
+    <button type = "button" id ="optimize" onclick="optimize()">Optimize lineups</button>
+
+    <input type = "image" id = "getNext" onclick = "getNext()" src = "forward.png"/>
+
+    <input type = "image" id = "getPrev" onclick = "getPrev()" src = "back.png"/>
+
     <div id = "records"></div>
-<!--
-    <table style="width: 80%" id="players">
-        <tr>
-            <th>Include player?</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Position</th>
-            <th>Team</th>
-            <th>Opponent</th>
-            <th>Projection</th>
-            <th>Salary</th>
-            <th>Cost per point</th>
-        </tr>
-        <tr>
-            <button type="submit" id="removeP">X</button>
 
-        </tr>
-
-    </table>
--->
 
     <div id="test"></div>
 
 
-    <!--    <p></p>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("form").click(function(){
-
-            $.ajax({
-                type: 'POST',
-                url: 'upload.php',
-                success: function(data) {
-                    alert(data);
-                    $("p").text(data);
-
-                }
-            });
-   });
-});
-</script>-->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
