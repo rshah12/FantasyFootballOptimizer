@@ -9,6 +9,9 @@
     <script src="updateDOM.js" type="text/javascript"></script>
     <script src="uploadfile.js" type="text/javascript"></script>
 
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 
 
@@ -65,9 +68,9 @@
                 </div>
             </div>
 
-            <div class="col-lg-4" id = "header">
-                <div class="text-align-center mx-auto">
-                    <span class="px-3 mx-3 py-3 my-3"><h1 class="font-weight-bold" "text-align-center">Fantasy Football Lineup Optimizer</h1></span>
+            <div class="col-lg-4 vertical-align-middle" id = "header">
+                <div class="text-align-center mx-auto vertical-align-middle">
+                    <span class="px-3 mx-3 py-3 my-3 vertical-align-middle"><h1 class="font-weight-bold text-align-center strokeme vertical-align-middle" style="color: white; border-color:black;">Fantasy Football Lineup Optimizer</h1></span>
                 </div>
             </div>
 
@@ -117,7 +120,7 @@
             <div class="col-lg-1"></div>
         </div>
     </div>
-    <div id="bottom-half" class="pt-3" style = "background: linear-gradient(#ffffff, #6c8f4b)">
+    <div id="bottom-half" class="pt-3" style = "background: linear-gradient(#6c8f4b, #ffffff">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1">
@@ -155,30 +158,41 @@
                 <div class="col-lg-1"></div>
                 <button type="button" class="btn btn-info mx-3" id="Optimize" onclick="optimize()"><span class="oi oi-bar-chart" title="bar-chart" aria-hidden="true"></span>Optimize</span></button>
                 <button type="button" class="btn btn-info mx-3" id="showdata" onclick="fillData()"><span class="oi oi-justify-left" title="justify-left" aria-hidden="true"></span>Display data</button>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-9">
+                    <div class="table table-condensed table-hover" id="Lineups"></div>
                 </div>
-                <div id="Lineups"></div>
+            </div>
 
-
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="ml-2" id = "optimizestatus"><p></p></div>
         </div>
-    <div>
-        <div id = "optimizestatus">
-        <p></p></div>
     </div>
     
 
     <div class="container-fluid">
         <div class="row" id = "toggles" style = "display: none">
-            <div class="col-lg-1"></div>
-            <input type="image" id="getPrev" onclick="getPrev()" src="back.png" />
-            <input type="image" id="getNext" onclick="getNext()" src="forward.png" />
+            <div class="col-lg-7"></div>
+            <div class="col-lg-2">
+                <span class="mr-3 pr-3"><input type="image" id="getPrev" onclick="getPrev()" src="back.png" /></span>
+                <input type="image" id="getNext" onclick="getNext()" src="forward.png" />
+            </div>
+            <div class="col-lg-3"></div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1"></div>
-            <span class="mx-3"></span><div class="table-striped table pre-scrollable" style="min-height:10; max-height:10;" id="records" style = "display: none"></div>
-            <div class="col-lg-1"></div>
+                <div class="col-lg-8">
+                    <div class="table-striped table pre-scrollable" style="min-height:10; max-height:10;" id="records" style = "display: none"></div>
+                </div>
+            <div class="col-lg-3"></div>
         </div>
     </div>
     <div id="test"></div>

@@ -21,6 +21,17 @@ h1 {
     align-items: center;
 }
 
+.strokeme
+{
+    color: white;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+    
+}
+
 #removeP {
     background-color: #f94f5e;
     border-radius: 8px;
