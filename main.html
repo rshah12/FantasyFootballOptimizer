@@ -15,10 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-fluid" id=>
+    <div class="container-fluid mb-3">
         <div class="row text-align-center">
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
@@ -66,7 +67,7 @@
 
             <div class="col-lg-2">
                 <div class="text-align-center mx-auto">
-                    <h1 class="font-weight-bold" "text-align-center">Fantasy Football Lineup Optimizer</h1>
+                    <span class="px-3 mx-3 py-3 my-3"><h1 class="font-weight-bold" "text-align-center">Fantasy Football Lineup Optimizer</h1></span>
                 </div>
             </div>
 
@@ -136,23 +137,36 @@
     </div>
   
 
-
-    <div id="slidecontainer">
-        <p>Set exposure:</p>
-        <input type="range" min="20" max="100" value="50" class="slider" id="myRange">
-         <p>Value: <span id="demo"></span></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="py-2 ml-3" id="slidecontainer">
+                <span>Set exposure:</span>
+                <span class= "px-2"><input type="range" min="20" max="100" value="50" class="slider" id="myRange"></span>
+                <span>Value: <span id="demo"></span></span>
+            
+            </div>
+        </div>
     </div>
 
-    <button type="button" id="Optimize" onclick="optimize()">Optimize</button>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <button type="button" class="btn btn-info mx-3" id="Optimize" onclick="optimize()"><span class="oi oi-bar-chart" title="bar-chart" aria-hidden="true"></span>Optimize</span></button>
+                <button type="button" class="btn btn-info mx-3" id="showdata" onclick="fillData()"><span class="oi oi-justify-left" title="justify-left" aria-hidden="true"></span>Display data</button>
+                </div>
+                <div id="Lineups"></div>
+                
+            
+        </div>
 
-    <div id="Lineups"></div>
-
-    <button type="button" id="showdata" onclick="fillData()">Display data</button>
-
-
-    <input type="image" id="getPrev" onclick="getPrev()" src="back.png" />
-
-    <input type="image" id="getNext" onclick="getNext()" src="forward.png" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1"></div>
+                <input type="image" id="getPrev" onclick="getPrev()" src="back.png" />
+                <input type="image" id="getNext" onclick="getNext()" src="forward.png" />
+        </div>
+    </div>
 
 
     <div id="records"></div>

@@ -2,7 +2,9 @@ $(document).ready(function () {
 
     var index = 0;
     var lineups = [];
+
     var sliderVal = 0;
+
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -12,7 +14,7 @@ $(document).ready(function () {
     slider.onchange = function () {
         output.innerHTML = this.value;
         sliderVal = slider.value;
-        alert(sliderVal);
+
     }
 
     fillData = function () {
