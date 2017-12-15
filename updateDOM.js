@@ -10,21 +10,10 @@ $(document).ready(function () {
 
                         var result = JSON.parse(data);
 
-                        var string = '<table><tr><th>#</th><th>Name</th><th>Email</th></tr>';
+                        var string = '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Team</th><th>Opponent</th><th>Salary</th><th>CPP</th><th>Projected Points</th></tr>';
 
-                        //from result create a string of data and append to the div
                        $.each(result, function (key, value){
-                                //alert(result.length);
-                                //alert(result)
-                                //alert(value);
-                                //alert(key);
-                          //foreach(var i = 0; i < result.length; i++) {
-
-                                //var value = result[i].toString();
-                                    //alert(value);
-                                   // alert(data);
                           string += "<tr>";
-                          //$.each(value, function(key, value){
                             string+=
                             "<td>" + value['fname'] + "</td>"+
                             "<td>" + value['lname'] + "</td>"+
@@ -35,18 +24,22 @@ $(document).ready(function () {
                             "<td>" + value['cpp'] + "</td>"+
                             "<td>" + value['projection']+ "</td>"+
                             "<td>" + value['uses']+ "</td>";
-                          //});
-
                           string+= "</tr>";
                         });
-
                         string += '</table>';
-
                         $("#records").html(string);
-
-
-
                     });
+            }
 
-                }
+          optimize = function() {
+
+            $.ajax({
+              method: "GET",
+              url: "otimize.php",
+            }).done(function(data) {
+              var result = JSON.parse(data);
+
+              var string = '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Salary</th><th>Projected Points</th></tr>';
+            });
+          }
 });
