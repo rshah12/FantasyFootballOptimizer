@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var index = 0;
     var lineups = [];
+    var sliderVal;
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -10,6 +11,18 @@ $(document).ready(function () {
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function () {
         output.innerHTML = this.value;
+        sliderVal = slider.value;
+
+        $.ajax({
+                    type: "GET",
+                    url: 'optimize.php',
+                    data: {slider: sliderVal },
+                    success: function(data)
+                    {
+                    }
+
+        });
+
     }
 
     fillData = function () {
