@@ -66,14 +66,9 @@
   $Lineups = array();
   $maxLineups = 1000000;
 
-if (isset($_GET['slider'])) {
-  $maxExposure = $_GET['slider'];
-} else {
-    $maxExposure = 0;
-}
-
   $requestedLineups = 100;
   $minProjection = 1000;
+  $maxExposure = $_POST['slider'];
   $counter = 0;
   $sum=0;
 
