@@ -36,6 +36,7 @@ $(function () {
             processData: false, // Don't process the files
             contentType: false, // Set content type to false as jQuery will tell the server its a query string request
             success: function (data, textStatus, jqXHR) {
+
                 if (typeof data.error === 'undefined') {
                     // Success so call function to process the form
                     submitForm(event, data);
@@ -51,7 +52,7 @@ $(function () {
             }
         });
 
-        $("#drop-box").html("Success!");
+        alert("File successfully uploaded!");
     }
 
     function submitForm(event, data) {

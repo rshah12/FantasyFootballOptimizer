@@ -27,7 +27,7 @@
             $this->D = $D;
             $this->salary = $QB->sal + $RB->sal + $RB2->sal + $WR->sal + $WR2->sal + $WR3->sal + $TE->sal + $K->sal + $D->sal;
             $this->avgCpp = ($QB->cpp + $RB->cpp + $RB2->cpp + $WR->cpp + $WR2->cpp + $WR3->cpp + $TE->cpp + $K->cpp + $D->cpp)/9;
-            $this->projection = $QB->projection + $RB->projection + $RB2->projection + $WR->projection + $WR2->projection + $WR3->projection + $TE->projection + $K->projection + $D->projection;
+            $this->projection = number_format($QB->projection + $RB->projection + $RB2->projection + $WR->projection + $WR2->projection + $WR3->projection + $TE->projection + $K->projection + $D->projection,2);
         }
 
         public function jsonSerialize () {
