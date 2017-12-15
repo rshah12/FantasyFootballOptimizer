@@ -3,6 +3,15 @@ $(document).ready(function () {
     var index = 0;
     var lineups = [];
 
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+
     fillData = function () {
 
         $.ajax({
@@ -14,6 +23,7 @@ $(document).ready(function () {
             var result = JSON.parse(data);
 
             var string = '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Team</th><th>Opponent</th><th>Salary</th><th>CPP</th><th>Projected Points</th></tr>';
+
 
             $.each(result, function (key, value) {
                 string += "<tr>" +
@@ -34,14 +44,12 @@ $(document).ready(function () {
 
     optimize = function () {
         $.ajax({
-            method: "GET",
+            method: "POST",
             url: "optimize.php",
         }).done(function (data) {
             var result = JSON.parse(data);
 
             var string = "";
-
-
 
             $.each(result, function (key, value) {
                 string += '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Salary</th><th>Projected Points</th></tr>' +
