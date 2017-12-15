@@ -77,7 +77,7 @@
             'Dpos'=>$this->D->pos,
             'Dsal'=>$this->D->sal,
             'Dprojection'=>$this->D->projection,
-            'totalsalary'=>$this->salary,
+            'salary'=>$this->salary,
             'avgCPP'=>$this->avgCpp,
             'projection'=>$this->projection
         );

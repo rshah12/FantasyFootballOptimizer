@@ -10,6 +10,7 @@
     <script src="uploadfile.js" type="text/javascript"></script>
 
     <link rel="stylesheet" type = "text/css" href="css/bootstrap.min.css">
+
 </head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +39,7 @@
                     <a href="http://www.baltimoreravens.com/team/injury-report.html">
                         <img src="Logos/AFC/Ravens.png"></a>
                     <a href="http://www.clevelandbrowns.com/team/injury-report.html">
-                        <img src="Logos/AFC/Browns.png"></a>    
+                        <img src="Logos/AFC/Browns.png"></a>
                     <a href="http://www.bengals.com/team/injuryreport.html">
                         <img src="Logos/AFC/Bengals.png"></a>
                 </div>
@@ -69,7 +70,7 @@
                     <h1 class="font-weight-bold" "text-align-center">Fantasy Football Lineup Optimizer</h1>
                 </div>
             </div>
-            
+
             <div class="col-lg-4">
                 <div class="row" id="NFCeast">
                     <a href="http://www.dallascowboys.com/team/injury-report.html">
@@ -114,7 +115,7 @@
 
             </div>
             <div class="col-lg-1"></div>
-        </div> 
+        </div>
     </div>
 
     <form action="#" enctype="multipart/form-data" method="post">
@@ -135,19 +136,23 @@
     </form>
 
 
+    <div id="slidecontainer">
+        <input type="range" min="20" max="100" value="50" class="slider" id="exposure">
+    </div>
+
     <button type="button" id="Optimize" onclick="optimize()">Optimize</button>
 
-    <div id= "Lineups"></div>
+    <div id="Lineups"></div>
 
     <button type="button" id="showdata" onclick="fillData()">Display data</button>
 
-    <button type = "button" id ="optimize" onclick="optimize()">Optimize lineups</button>
 
-    <input type = "image" id = "getNext" onclick = "getNext()" src = "forward.png"/>
+    <input type="image" id="getPrev" onclick="getPrev()" src="back.png" />
 
-    <input type = "image" id = "getPrev" onclick = "getPrev()" src = "back.png"/>
+    <input type="image" id="getNext" onclick="getNext()" src="forward.png" />
 
-    <div id = "records"></div>
+
+    <div id="records"></div>
 
 
     <div id="test"></div>
