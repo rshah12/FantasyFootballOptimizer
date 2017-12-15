@@ -3,76 +3,114 @@
 <html>
 
 <head>
-    <title>NFL Lineup Optimizer</title>
+    <title>Fantasy Football Lineup Optimizer</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="jquery-3.2.1.js"></script>
     <script src="updateDOM.js" type="text/javascript"></script>
     <script src="uploadfile.js" type="text/javascript"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <div class="row" id="AFCeast">
+                    <a href="http://www.patriots.com/schedule-and-stats/injury-report">
+                        <img src="Logos/AFC/Patriots.png"></a>
+                    <a href="http://www.miamidolphins.com/team/injury-report.html">
+                        <img src="Logos/AFC/Dolphins.png"></a>
+                    <a href="http://www.buffalobills.com/team/injury-report.html">
+                        <img src="Logos/AFC/Bills.png"></a>
+                    <a href="http://www.newyorkjets.com/team/injury.html">
+                        <img src="Logos/AFC/Jets.png"></a>
+                </div>
+                <div class="row" id="AFCnorth">
+                    <a href="http://www.steelers.com/team/injury-report.html">
+                        <img src="Logos/AFC/Steelers.png"></a>
+                    <a href="http://www.baltimoreravens.com/team/injury-report.html">
+                        <img src="Logos/AFC/Ravens.png"></a>
+                    <a href="http://www.clevelandbrowns.com/team/injury-report.html">
+                        <img src="Logos/AFC/Browns.png"></a>    
+                    <a href="http://www.bengals.com/team/injuryreport.html">
+                        <img src="Logos/AFC/Bengals.png"></a>
+                </div>
+                <div class="row" id="AFCwest">
+                    <a href="http://www.denverbroncos.com/team/injury-report.html">
+                        <img src="Logos/AFC/Broncos.png"></a>
+                    <a href="http://www.raiders.com/team/injury-report.html">
+                        <img src="Logos/AFC/Raiders.png"></a>
+                    <a href="http://www.chiefs.com/team/injury-report.html">
+                        <img src="Logos/AFC/Chiefs.png"></a>
+                    <a href="http://www.chargers.com/team/injury-report">
+                        <img src="Logos/AFC/Chargers.png"></a>
+                </div>
+                <div class="row" id="AFCsouth">
+                    <a href="http://www.colts.com/team/injury-report.html">
+                        <img src="Logos/AFC/Colts.png"></a>
+                    <a href="http://www.houstontexans.com/team/injury-report.html">
+                        <img src="Logos/AFC/Texans.png"></a>
+                    <a href="http://www.titansonline.com/team/injury-report.html">
+                        <img src="Logos/AFC/Titans.png"></a>
+                    <a href="http://www.jaguars.com/team/injury-report.html">
+                        <img src="Logos/AFC/Jaguars.png"></a>
+                </div>
+            </div>
 
-    <div id="afcLogos">
-        <a href="http://www.patriots.com/schedule-and-stats/injury-report">
-           <img src="Logos/AFC/Patriots.png">
-        </a>
+            <div class="col-lg-2">
+                <h1>Fantasy Football Lineup Optimizer</h1>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="row" id="NFCeast">
+                    <a href="http://www.dallascowboys.com/team/injury-report.html">
+                        <img src="Logos/NFC/Cowboys.png"></a>
+                    <a href="http://www.philadelphiaeagles.com/team/injury-report.html">
+                        <img src="Logos/NFC/Eagles.png"></a>
+                    <a href="http://www.giants.com/team/injury-report.html">
+                        <img src="Logos/NFC/Giants.png"></a>
+                    <a href="http://www.redskins.com/team/injury-report.html">
+                        <img src="Logos/NFC/Redskins.png"></a>
+                </div>
+                <div class="row" id="NFCnorth">
+                    <a href="http://www.chicagobears.com/team/injury-report.html">
+                        <img src="Logos/NFC/Bears.png"></a>
+                    <a href="http://www.detroitlions.com/team/injury-report.html">
+                        <img src="Logos/NFC/Lions.png"></a>
+                    <a href="http://www.packers.com/team/injury-report.html">
+                        <img src="Logos/NFC/Packers.png"></a>
+                    <a href="http://www.vikings.com/team/injury-report.html">
+                        <img src="Logos/NFC/Vikings.png"></a>
+                </div>
+                <div class="row" id="AFCwest">
+                    <a href="http://www.49ers.com/team/injury-report-home-and-away.html">
+                        <img src="Logos/NFC/49ers.png"></a>
+                    <a href="http://www.therams.com/team/injury-report.html">
+                        <img src="Logos/NFC/Rams.png"></a>
+                    <a href="http://www.azcardinals.com/gameday/injury-report.html">
+                        <img src="Logos/NFC/Cardinals.png"></a>
+                    <a href="http://www.seahawks.com/team/injuries">
+                        <img src="Logos/NFC/Seahawks.png"></a>
+                </div>
+                <div class="row">
+                    <a href="http://www.panthers.com/team/injury-report.html">
+                        <img src="Logos/NFC/Panthers.png"></a>
+                    <a href="http://www.atlantafalcons.com/news/injury-report.html">
+                        <img src="Logos/NFC/Falcons.png"></a>
+                    <a href="http://www.nfl.com/teams/neworleanssaints/injuries?team=NO">
+                        <img src="Logos/NFC/Saints.png"></a>
+                    <a href="http://www.buccaneers.com/team-and-stats/injury-report.html">
+                        <img src="Logos/NFC/Buccaneers.png"></a>
+                </div>
 
-        <a href="http://www.steelers.com/team/injury-report.html"><img src="Logos/AFC/Steelers.png"></a>
-
-        <a href="http://www.denverbroncos.com/team/injury-report.html">
-        <img src="Logos/AFC/Broncos.png"></a>
-
-        <a href="http://www.raiders.com/team/injury-report.html">
-        <img src="Logos/AFC/Raiders.png"></a>
-        <a href="http://www.chiefs.com/team/injury-report.html">
-            <img src="Logos/AFC/Chiefs.png"></a>
-        <a href="http://www.colts.com/team/injury-report.html">
-            <img src="Logos/AFC/Colts.png"></a>
-        <a href="http://www.baltimoreravens.com/team/injury-report.html">
-            <img src="Logos/AFC/Ravens.png"></a>
-        <a href="http://www.newyorkjets.com/team/injury.html">
-            <img src="Logos/AFC/Jets.png"></a>
-        <a href="http://www.miamidolphins.com/team/injury-report.html">
-            <img src="Logos/AFC/Dolphins.png"></a>
-        <a href="http://www.buffalobills.com/team/injury-report.html">
-            <img src="Logos/AFC/Bills.png"></a>
-        <a href="http://www.houstontexans.com/team/injury-report.html">
-            <img src="Logos/AFC/Texans.png"></a>
-        <a href="http://www.clevelandbrowns.com/team/injury-report.html">
-            <img src="Logos/AFC/Browns.png"></a>
-        <a href="http://www.bengals.com/team/injuryreport.html">
-            <img src="Logos/AFC/Bengals.png"></a>
-        <a href="http://www.chargers.com/team/injury-report">
-            <img src="Logos/AFC/Chargers.png"></a>
-        <a href="http://www.titansonline.com/team/injury-report.html">
-            <img src="Logos/AFC/Titans.png"></a>
-        <a href="http://www.jaguars.com/team/injury-report.html">
-            <img src="Logos/AFC/Jaguars.png"></a>
+            </div>
+            <div class="col-lg-1"></div>
+        </div> 
     </div>
-
-    <h1>NFL Optimizer</h1><br>
-
-    <div id="nfcLogos">
-        <img src="Logos/NFC/49ers.png">
-        <img src="Logos/NFC/Bears.png">
-        <img src="Logos/NFC/Buccaneers.png">
-        <img src="Logos/NFC/Cardinals.png">
-        <img src="Logos/NFC/Cowboys.png">
-        <img src="Logos/NFC/Eagles.png">
-        <img src="Logos/NFC/Falcons.png">
-        <a href="http://www.panthers.com/team/injury-report.html">
-        <img src="Logos/NFC/Panthers.png">
-        </a>
-        <img src="Logos/NFC/Giants.png">
-        <img src="Logos/NFC/Lions.png">
-        <img src="Logos/NFC/Packers.png">
-        <img src="Logos/NFC/Rams.png">
-        <img src="Logos/NFC/Redskins.png">
-        <img src="Logos/NFC/Saints.png">
-        <img src="Logos/NFC/Seahawks.png">
-        <img src="Logos/NFC/Vikings.png">
-    </div>
-
 
     <!--
     <form>
@@ -204,7 +242,9 @@
 });
 </script>-->
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 
 </body>
