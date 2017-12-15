@@ -51,8 +51,6 @@ $(document).ready(function () {
 
             var string = "";
 
-            alert(data);
-
             $.each(result, function (key, value) {
                 string += '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Salary</th><th>Projected Points</th></tr>' +
                     "<tr>" + "<td>" + value['QBfname'] + "</td>" + "<td>" + value['QBlname'] + "</td>" + "<td>" + value['QBpos'] + "</td>" + "<td>" + value['QBsal'] + "</td>" + "<td>" + value['QBprojection'] + "</td>" + "</tr>" +
