@@ -183,4 +183,5 @@
 $conn->close();
 
 echo json_encode($Lineups);
+
 ?>
