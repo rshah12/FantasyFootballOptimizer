@@ -70,7 +70,7 @@ if (isset($_GET['slider'])) {
   $maxExposure = $_GET['slider'];
 } else {
     $maxExposure = 0;
-} echo $maxExposure;
+}
 
   $requestedLineups = 100;
   $minProjection = 1000;
