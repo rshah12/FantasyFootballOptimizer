@@ -64,8 +64,8 @@ $(document).ready(function () {
                     "<tr>" + "<td>" + value['TEfname'] + "</td>" + "<td>" + value['TElname'] + "</td>" + "<td>" + value['TEpos'] + "</td>" + "<td>" + value['TEsal'] + "</td>" + "<td>" + value['TEprojection'] + "</td>" + "</tr>" +
                     "<tr>" + "<td>" + value['Kfname'] + "</td>" + "<td>" + value['Klname'] + "</td>" + "<td>" + value['Kpos'] + "</td>" + "<td>" + value['Ksal'] + "</td>" + "<td>" + value['Kprojection'] + "</td>" + "</tr>" +
                     "<tr>" + "<td>" + value['Dfname'] + "</td>" + "<td>" + value['Dlname'] + "</td>" + "<td>" + value['Dpos'] + "</td>" + "<td>" + value['Dsal'] + "</td>" + "<td>" + value['Dprojection'] + "</td>" + "</tr>" +
-                    "<tr>" + "<td>" + "Total" + "</td>" + "<td>" + "For" + "</td>" + "<td>" + "Lineup:" + "</td>" + "<td>" + value['salary'] + "</td>" + "<td>" + value['projection'] + "</td>" + "</tr>" +
-                    '</table>';
+                    "<tr>" + "<td>" + "Total" + "</td>" + "<td>" + "For" + "</td>" + "<td>" + "Lineup:" + "</td>" + "<td>" + value['salary'] + "</td>" + "<td>" + value['projection'] + "</td>" + "</tr>"
+                    +'</table>';
                 lineups.push(string);
                 string = "";
             });
