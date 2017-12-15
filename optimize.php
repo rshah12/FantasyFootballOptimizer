@@ -65,51 +65,68 @@
 
   $Lineups = array();
   $maxLineups = 1000000;
-  $maxExposure = 50;
+
+if (isset($_GET['slider'])) {
+  $maxExposure = $_GET['slider'];
+} else {
+    $maxExposure = 0;
+} echo $maxExposure;
+
   $requestedLineups = 100;
   $minProjection = 1000;
   $counter = 0;
   $sum=0;
 
-    for($i=0; $i<7; $i++){
+    for($i=0; $i<10; $i++){
         $QB = $QBs[$i];
-        if($counter >= $maxLineups || $QB->uses > $maxExposure){break;}
-      for($j=0; $j<10; $j++){
+        if($counter >= $maxLineups || $QB->uses >= $maxExposure){continue;}
+      for($j=0; $j<15; $j++){
           $RB = $RBs[$j];
-          if($counter >= $maxLineups || $RB->uses > $maxExposure){break;}
-        for($k=0; $k<10; $k++){
+          if($counter >= $maxLineups || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
+        for($k=0; $k<15; $k++){
             $RB2 = $RBs[$k+$j];
-            if($counter >= $maxLineups || $RB2->uses > $maxExposure){break;}
+            if($counter >= $maxLineups || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
             if($RB2 != $RB){
-          for($l=0; $l<15; $l++){
+          for($l=0; $l<20; $l++){
               $WR = $WRs[$l];
-              if($counter >= $maxLineups || $WR->uses > $maxExposure){break;}
+              if($counter >= $maxLineups || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
               //if($WR->sal+$RB2->sal+$RB->sal+$QB->sal+22000 > 60000){break;}
-            for($m=0; $m<15; $m++){
+            for($m=0; $m<20; $m++){
                 $WR2 = $WRs[$m+$l];
-                if(sizeof($Lineups) >= $maxLineups || $WR2->uses > $maxExposure){break;}
+                if(sizeof($Lineups) >= $maxLineups || $WR2->uses >= $maxExposure || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
                 if($WR2 != $WR){
                 //if($WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+17500 > 60000){break;}
-              for($n=0; $n<15; $n++){
+              for($n=0; $n<20; $n++){
                   $WR3 = $WRs[$n+$m+$l];
-                  if($counter >= $maxLineups || $WR3->uses > $maxExposure){break;}
+                  if($counter >= $maxLineups || $WR3->uses >= $maxExposure || $WR2->uses >= $maxExposure || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
                   if($WR3 != $WR2 && $WR3 != $WR){
                   //if($WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+13000 > 60000){break;}
                 for($o=0; $o<5; $o++){
                     $TE = $TEs[$o];
-                    if($counter >= $maxLineups || $TE->uses > $maxExposure){break;}
+                    if($counter >= $maxLineups || $TE->uses >= $maxExposure || $WR3->uses >= $maxExposure || $WR2->uses >= $maxExposure || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
                     //if($TE->sal+$WR3->sal+$WR2->sal+$WR->sal+$RB2->sal+$RB->sal+$QB->sal+8500 > 60000){break;}
                   for($p=0; $p<5; $p++){
                       $K = $Ks[$p];
-                      if($counter >= $maxLineups || $K->uses > $maxExposure){break;}
+                      if($counter >= $maxLineups || $K->uses >= $maxExposure || $TE->uses >= $maxExposure || $WR3->uses >= $maxExposure || $WR2->uses >= $maxExposure || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
                     for($q=0; $q<5; $q++){
                       $D = $Ds[$q];
-                      if($counter >= $maxLineups || $D->uses > $maxExposure){break;}
+                      if($counter >= $maxLineups || $D->uses >= $maxExposure || $K->uses >= $maxExposure || $TE->uses >= $maxExposure || $WR3->uses >= $maxExposure || $WR2->uses >= $maxExposure || $WR->uses >= $maxExposure || $RB2->uses >= $maxExposure || $RB->uses >= $maxExposure || $QB->uses >= $maxExposure){continue;}
                       $lineup = new lineup($QB, $RB, $RB2, $WR, $WR2, $WR3, $TE, $K, $D);
                       //echo "$lineup->salary\n";
                       if ($lineup->salary > 57000 && $lineup->salary <= 60000){
                         if($counter < $requestedLineups){
                           //echo "$counter\n";
+
+                          $QB->uses = $QB->uses + 1;
+                          $RB->uses = $RB->uses + 1;
+                          $RB2->uses = $RB2->uses + 1;
+                          $WR->uses = $WR->uses + 1;
+                          $WR2->uses = $WR2->uses + 1;
+                          $WR3->uses = $WR3->uses + 1;
+                          $TE->uses = $TE->uses + 1;
+                          $K->uses = $K->uses + 1;
+                          $D->uses = $D->uses + 1;
+
                           array_push($Lineups, $lineup);
                           if($minProjection > $lineup->projection){
                             $minProjection = $lineup->projection;
@@ -142,17 +159,18 @@
                                 $minIndex = $z;
                               }
                             }
+
+                            $QB->uses = $QB->uses + 1;
+                            $RB->uses = $RB->uses + 1;
+                            $RB2->uses = $RB2->uses + 1;
+                            $WR->uses = $WR->uses + 1;
+                            $WR2->uses = $WR2->uses + 1;
+                            $WR3->uses = $WR3->uses + 1;
+                            $TE->uses = $TE->uses + 1;
+                            $K->uses = $K->uses + 1;
+                            $D->uses = $D->uses + 1;
                         }
                         $counter++;
-                        $QB->uses = $QB->uses + 1;
-                        $RB->uses = $RB->uses + 1;
-                        $RB2->uses = $RB2->uses + 1;
-                        $WR->uses = $WR->uses + 1;
-                        $WR2->uses = $WR2->uses + 1;
-                        $WR3->uses = $WR3->uses + 1;
-                        $TE->uses = $TE->uses + 1;
-                        $K->uses = $K->uses + 1;
-                        $D->uses = $D->uses + 1;
                       }
 
                     }
