@@ -8,30 +8,37 @@ $(document).ready(function () {
 
                 }).done(function (data) {
 
-//                        var result = $.parseJSON(data);
+                        var result = JSON.parse(data);
 
                         var string = '<table><tr><th>#</th><th>Name</th><th>Email</th></tr>';
 
                         //from result create a string of data and append to the div
-//                        $.each(data, function (key, value)
-                                alert(data.length);
-                               for (var i = 0; i < data.length; i++) {
+                       $.each(result, function (key, value){
+                                //alert(result.length);
+                                //alert(result)
+                                //alert(value);
+                                //alert(key);
+                          //foreach(var i = 0; i < result.length; i++) {
 
-                                    var value = data[i];
-                                   alert(value);
-                            string += "<tr>"
-                            "<td>" + value['fname'] + "</td>"
-                            "<td>" + value['lname'] + "</td>"
-                            "<td>" + value['pos'] + "</td>"
-                            "<td>" + value['team'] + "</td>"
-                            "<td>" + value['opp'] + "</td>"
-                            "<td>" + value['sal'] + "</td>"
-                            "<td>" + value['cpp'] + "</td>"
-                            "<td>" + value['projection']+"</td>"
-                            "<td>" + value['uses']+"</td>"
-                            "</tr>";
+                                //var value = result[i].toString();
+                                    //alert(value);
+                                   // alert(data);
+                          string += "<tr>";
+                          //$.each(value, function(key, value){
+                            string+=
+                            "<td>" + value['fname'] + "</td>"+
+                            "<td>" + value['lname'] + "</td>"+
+                            "<td>" + value['pos'] + "</td>"+
+                            "<td>" + value['team'] + "</td>"+
+                            "<td>" + value['opp'] + "</td>"+
+                            "<td>" + value['sal'] + "</td>"+
+                            "<td>" + value['cpp'] + "</td>"+
+                            "<td>" + value['projection']+ "</td>"+
+                            "<td>" + value['uses']+ "</td>";
+                          //});
 
-                        };
+                          string+= "</tr>";
+                        });
 
                         string += '</table>';
 
