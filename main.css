@@ -22,6 +22,10 @@ h1 {
     border-color: #f94f5e;
 }
 
+#topBox{
+    bacgkround-image: url("football-field-stripes-1.jpg")
+}
+
 #afcLogos {
     width: 100%;
     text-align: center;
