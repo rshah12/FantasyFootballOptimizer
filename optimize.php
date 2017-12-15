@@ -169,9 +169,5 @@
     }
 $conn->close();
 
-foreach($Lineups as $l){
-  echo $l->salary . "\n";
-}
-
 echo json_encode($Lineups);
 ?>
