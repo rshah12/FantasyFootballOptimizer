@@ -12,7 +12,7 @@ if ($Result=mysqli_query($conn,$Query)){
 mysqli_free_result($Result);
 }
 ?>
-<script type="text/javascript" src = "updateDOM.js">var quarterbacks = <?php echo json_encode($QBs) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var quarterbacks = <?php echo json_encode($QBs) ?></script>-->
 
 <?php
 $RBs = array();
@@ -26,7 +26,7 @@ mysqli_free_result($Result);
 }
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var runningbacks = <?php echo json_encode($RBs) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var runningbacks = <?php echo json_encode($RBs) ?></script>-->
 
 <?php
 $WRs = array();
@@ -40,7 +40,7 @@ mysqli_free_result($Result);
 }
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var widereceivers = <?php echo json_encode($WRs) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var widereceivers = <?php echo json_encode($WRs) ?></script>-->
 
 <?php
 $TEs = array();
@@ -54,7 +54,7 @@ mysqli_free_result($Result);
 }
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var tightends = <?php echo json_encode($TEs) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var tightends = <?php echo json_encode($TEs) ?></script>-->
 
 <?php
 $Ds = array();
@@ -68,7 +68,7 @@ mysqli_free_result($Result);
 }
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var defenses = <?php echo json_encode($Ds) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var defenses = <?php echo json_encode($Ds) ?></script>-->
 
 <?php
 $Ks = array();
@@ -82,7 +82,7 @@ mysqli_free_result($Result);
 }
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var kickers = <?php echo json_encode($Ks) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var kickers = <?php echo json_encode($Ks) ?></script>-->
 
 <?php
 $allPlayers = array();
@@ -97,7 +97,7 @@ mysqli_free_result($Result);
 $conn->close();
 ?>
 
-<script type="text/javascript" src = "updateDOM.js">var allplayers = <?php echo json_encode($allPlayers) ?></script>
+<!--<script type="text/javascript" src = "updateDOM.js">var allplayers = <?php echo json_encode($allPlayers) ?></script>-->
 
 <?php
 echo json_encode($allPlayers);

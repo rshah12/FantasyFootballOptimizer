@@ -8,13 +8,17 @@ $(document).ready(function () {
 
                 }).done(function (data) {
 
-                        var result = $.parseJSON(data);
+//                        var result = $.parseJSON(data);
 
                         var string = '<table><tr><th>#</th><th>Name</th><th>Email</th></tr>';
 
                         //from result create a string of data and append to the div
-                        $.each(result, function (key, value) {
+//                        $.each(data, function (key, value)
+                                alert(data.length);
+                               for (var i = 0; i < data.length; i++) {
 
+                                    var value = data[i];
+                                   alert(value);
                             string += "<tr>"
                             "<td>" + value['fname'] + "</td>"
                             "<td>" + value['lname'] + "</td>"
@@ -27,7 +31,7 @@ $(document).ready(function () {
                             "<td>" + value['uses']+"</td>"
                             "</tr>";
 
-                        });
+                        };
 
                         string += '</table>';
 
@@ -35,6 +39,7 @@ $(document).ready(function () {
 
 
 
-                    };
+                    });
 
-                });
+                }
+});
