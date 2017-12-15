@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id=>
         <div class="row text-align-center">
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
@@ -66,7 +66,7 @@
             </div>
 
             <div class="col-lg-2">
-                <div class="text-align-center">
+                <div class="text-align-center mx-auto">
                     <h1 class="font-weight-bold" "text-align-center">Fantasy Football Lineup Optimizer</h1>
                 </div>
             </div>
@@ -118,22 +118,23 @@
         </div>
     </div>
 
-    <form action="#" enctype="multipart/form-data" method="post">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-1"></div>
-                    <div class="col-lg-2" id="drop-box">
-                        <p>Select files</p>
-                    </div>
-                <div class="col-lg-3">
-                    <label for="file_upload"></label>
-                    <input type="file" name="file_upload" id="upl" multiple>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-6">
+            <form action="#" enctype="multipart/form-data" method="post">
+                <span>Select files</span>
+                <label for="file_upload"></label>
+                <input type="file" name="file_upload" id="upl" multiple>
                 <input class="button green" type="submit" name="submit" value="Submit Content">
-                <div class="col-lg-6"></div>
+            </form>
+            </div>
+            <div class="col-lg-5">
             </div>
         </div>
-    </form>
+    </div>
+  
 
 
     <div id="slidecontainer">
@@ -163,8 +164,8 @@
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 
 </body>
