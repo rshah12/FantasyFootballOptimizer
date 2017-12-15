@@ -70,7 +70,6 @@
   $minProjection = 1000;
   $counter = 0;
   $sum=0;
-  $maxExposure = 80;
 
     for($i=0; $i<7; $i++){
         $QB = $QBs[$i];
@@ -168,24 +167,7 @@
       }
       }
     }
-
-   foreach($Lineups as $l){
-     echo "$l->projection\n";
-   }
-    // foreach($Lineups as $l){
-    //   echo "Lineup Projection: "."$l->projection\n";
-    //   $QB = $l->QB;
-    //   $RB = $l->RB;
-    //   $RB2 = $l->RB2;
-    //   $WR = $l->WR;
-    //   $WR2 = $l->WR2;
-    //   $WR3 = $l->WR3;
-    //   $TE = $l->TE;
-    //   $K = $l->K;
-    //   $D = $l->D;
-    //   echo "Players "."$QB->lname"." "."$RB->lname"." "."$RB2->lname"." "."$WR->lname"." "."$WR2->lname\n";
-    //   echo "$WR3->lname"." "."$TE->lname"." "."$K->lname"." "."$D->lname\n";
-    // }
-
 $conn->close();
+
+echo json_encode($Lineups);
 ?>
