@@ -74,6 +74,7 @@ $(document).ready(function () {
                     "<tr>" + "<td>" + "Total" + "</td>" + "<td>" + "For" + "</td>" + "<td>" + "Lineup:" + "</td>" + "<td>" + value['salary'] + "</td>" + "<td>" + value['projection'] + "</td>" + "</tr>" +
                     '</table>';
                 lineups.push(string);
+                $("#toggles").css('display', 'inline-block');
                 string = "";
             });
             $("#Lineups").html(lineups[index]);
