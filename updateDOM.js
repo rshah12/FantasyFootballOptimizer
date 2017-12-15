@@ -13,8 +13,7 @@ $(document).ready(function () {
                         var string = '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Team</th><th>Opponent</th><th>Salary</th><th>CPP</th><th>Projected Points</th></tr>';
 
                        $.each(result, function (key, value){
-                          string += "<tr>";
-                            string+=
+                          string += "<tr>"+
                             "<td>" + value['fname'] + "</td>"+
                             "<td>" + value['lname'] + "</td>"+
                             "<td>" + value['pos'] + "</td>"+
@@ -23,8 +22,7 @@ $(document).ready(function () {
                             "<td>" + value['sal'] + "</td>"+
                             "<td>" + value['cpp'] + "</td>"+
                             "<td>" + value['projection']+ "</td>"+
-                            "<td>" + value['uses']+ "</td>";
-                          string+= "</tr>";
+                            "</tr>";
                         });
                         string += '</table>';
                         $("#records").html(string);
@@ -40,6 +38,18 @@ $(document).ready(function () {
               var result = JSON.parse(data);
 
               var string = '<table><tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Salary</th><th>Projected Points</th></tr>';
+
+              $.each(result, function (key, value){
+                 string += "<tr>"+
+                   "<td>" + value['fname'] + "</td>"+
+                   "<td>" + value['lname'] + "</td>"+
+                   "<td>" + value['pos'] + "</td>"+
+                   "<td>" + value['sal'] + "</td>"+
+                   "<td>" + value['projection']+ "</td>"+
+                   "</tr>";
+               });
+
+
             });
           }
 });
