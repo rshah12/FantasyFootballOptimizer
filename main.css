@@ -48,3 +48,7 @@ img {
     align-items: center;
     display: inline-block;
 }
+
+body {
+    background-color: aqua;
+}
